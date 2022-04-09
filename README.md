@@ -1,8 +1,8 @@
 # Modulos Node no projeto!
 ### `npm install`
-npm install bootstrap
-npm install react-router-dom
-npm instal axios
+npm install bootstrap.\
+npm install react-router-dom.\
+npm instal axios.\
 
 
 # Getting Started with Create React App
