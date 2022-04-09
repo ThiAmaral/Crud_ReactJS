@@ -10,19 +10,22 @@ class ClientService {
   }
 
   post(client){
-    const response = hook.post(this.baseUrl, client).then(res=>{console.log(res.data)});
+    const response = hook.post(this.baseUrl, client).then(res=>{ console.log(res.data) });
     return response;
   }
 
   //Em construção
   async getId(client){
     const response = await hook.get(`${this.baseUrl}/${client.id}`);
-    return response
+    return response.data.data
   }
 
-  update(client){
-    const response = hook.update(this.baseUrl, client)
-    return response;
+  update(data, client){
+    console.log(data);
+    console.log(client);
+    console.log(`${this.baseUrl}/${client.id  }`);
+    const response = hook.put(`${this.baseUrl}/${client.id}`).then(res=>{ console.log(res.data) });
+    return response.data;
   }
 }
 

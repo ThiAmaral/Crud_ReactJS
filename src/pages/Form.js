@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import ClientService from '../services/ClientService';
 
 const Form = (onSave) => {
   //Segunda Página!
   const clientService = new ClientService();
   const navigate = useNavigate();
+  const clientId = useParams();
   const [data, setData] = useState({
     name: "",
     job: "",
   })
-  
+  //Post
   const handleSubmit = (e)=>{
     const newData = {...data};
     newData[e.target.id] = e.target.value;
@@ -19,9 +20,19 @@ const Form = (onSave) => {
 
   const saveClient = (e)=>{
     e.preventDefault();
-    
     clientService.post(data);
   }
+
+  //Teste
+
+  // const imprimir = (e)=>{
+  //   e.preventDefault();
+  //   if(onSave){
+  //     console.log(e);
+  //   }
+  // }
+
+  //Fim do Teste
 
   return (
     <section>
@@ -56,6 +67,7 @@ const Form = (onSave) => {
           </div>
           <div class="d-grid gap-2 d-md-flex justify-content-md-left mt-4">
             <button type="submit" class="btn btn-primary me-md-2">Submit</button>
+            <button type="button" class="btn btn-primary me-md-2" onClick={(e)=> updateClient(e)}>Atualizar</button>
             <button type="button" class="btn btn-primary" onClick={()=> navigate(-1)}>Cancelar</button>
           </div>
         </form>
