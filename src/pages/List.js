@@ -21,46 +21,46 @@ const List = ()=> {
 
   return(
     <section>
-      <div class="container">
-        {/* Listar Usuários */}
-        {loading ?
-          <p>Carregando!</p>
-        :
-          <div>
-            <div class="card">
-              <h5 class="card-header">Clientes</h5>
+      {/* Listar Usuários */}
+      {loading ?
+        <p>Carregando!</p>
+      :
+        <div>
+          <div class="card">
+            <h5 class="card-header">Clientes</h5>
+            <div class="card-body">
               {clients.map( (client)=>
               <div>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                   {client.first_name}
                   <div class="d-grid gap-2 d-md-block">
-                    <button class="btn btn-primary" type="button" onClick={()=> navigate('/cliente/atualizar')}>Editar</button>
+                    <button class="btn btn-primary" type="button" onClick={()=> navigate(`/cliente/${client.id}`)}>Editar</button>
                   </div>
                 </li>
               </div>
               )}
-            </div>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-left mt-4">
-              <button 
-                class="btn btn-primary me-md-2"
-                type="button" 
-                onClick={()=> navigate('/cadastrarCliente')}
-              >
-                Novo usuário
-              </button>
-              <button 
-                class="btn btn-primary"
-                type="button"
-                onClick={()=> navigate(-1)}
-              >
-                Cancelar
-              </button>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-left mt-3">
+                <button 
+                  class="btn btn-primary me-md-2"
+                  type="button" 
+                  onClick={()=> navigate('/cadastrarCliente')}
+                >
+                  Novo usuário
+                </button>
+                <button 
+                  class="btn btn-primary"
+                  type="button"
+                  onClick={()=> navigate(-1)}
+                >
+                  Cancelar
+                </button>
+              </div>
             </div>
           </div>
-        }
-      </div>
+        </div>
+      }
     </section>
-  )
+  );
 }
 
 export default List;

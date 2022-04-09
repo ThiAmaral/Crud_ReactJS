@@ -14,6 +14,12 @@ class ClientService {
     return response;
   }
 
+  //Em construção
+  async getId(client){
+    const response = await hook.get(`${this.baseUrl}/${client.id}`);
+    return response
+  }
+
   update(client){
     const response = hook.update(this.baseUrl, client)
     return response;

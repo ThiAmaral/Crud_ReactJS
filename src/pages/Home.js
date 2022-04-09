@@ -1,14 +1,20 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Home = ()=>{
+const Home = () => {
   const navigate = useNavigate();
 
-  return(
+  return (
     <section>
-      <p>Dashboard</p>
-      <button onClick={()=>navigate('/cliente')}>Clientes</button>
+      <div class="card text-center">
+        <div class="card-header">
+          Home
+        </div>
+        <div class="card-body">
+          <button class="btn btn-primary" onClick={() => navigate('/cliente')}>Clientes</button>
+        </div>  
+      </div>
     </section>
-  )
+  );
 }
 export default Home;

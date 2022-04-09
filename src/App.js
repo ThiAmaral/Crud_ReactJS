@@ -1,22 +1,12 @@
 import { BrowserRouter as Router } from 'react-router-dom';
-import Routes from './routes/routes';
+import Layout from './containers/Layout';
 
 function App() {
 
   return (
     <Router>
-      <div>
-        <header>
-          <div class='mt-4'>
-
-          </div>
-        </header>
-        <body>
-          <Routes />
-        </body>
-      </div>
+        <Layout />
     </Router>
-    
   );
 }
 
